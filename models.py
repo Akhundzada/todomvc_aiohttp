@@ -7,17 +7,6 @@ Base = declarative_base()
 
 
 class Task:
-    @staticmethod
-    def possible_routes():
-        return
-        {
-            'GET': {'/': 'index', '/view': 'view'},
-            'POST': {
-                        '/create': 'create', '/edit': 'edit',
-                        '/complete': 'complete',
-                     }
-        }
-
     engine = create_engine('sqlite:///todomvc.sqlite')
     session = sessionmaker()
     session.configure(bind=engine)

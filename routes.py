@@ -1,11 +1,8 @@
-from views import *
-from .models import Task
+import views
+
 
 def setup_routes(app):
-    for method, route in Task.possible_routes():
-        if route.length > 0:
-            for r in route:
-                if (method == 'GET'):
-                    app.router.add_get (r, )
-
-    app.router.add_get('/', index)
+    app.router.add_get('/', views.index)
+    app.router.add_post('/create', views.create_task)
+    app.router.add_post('/edit/<int:id>', views.edit_task)
+    app.router.add_delete('/<int:id>', views.delete_task)

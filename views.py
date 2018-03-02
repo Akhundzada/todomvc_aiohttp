@@ -20,5 +20,5 @@ async def delete_task(request):
 async def complete_task(request):
     try:
         Task.complete(Task, task_id=request.GET['task_id'])
-    except ValueError:
+    except:
         return {'code': 404, 'message': 'Task does not exists'}
